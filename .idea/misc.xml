@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/HealthCare/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/drawable/ic_user_place_holder.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/drawable/main_content.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/drawable/nav_header_main_background.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/activity_home1.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/activity_main.xml" value="0.15208333333333332" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/app_bar_main.xml" value="0.165625" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/main_content.xml" value="0.11503623188405797" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/nav_header_main.xml" value="0.16458333333333333" />
+        <entry key="..\:/HealthCare/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/menu/main_menu.xml" value="0.16927083333333334" />
+        <entry key="..\:/HealthCare/app/src/main/res/menu/menu.xml" value="0.126953125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
