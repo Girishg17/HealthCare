@@ -14,13 +14,15 @@
         android:theme="@style/Theme.HealthCare"
         tools:targetApi="31">
         <activity
+            android:name=".CreateAccount"
+            android:exported="false" />
+        <activity
             android:name=".Home1"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-    android:name=".BmiActivity"
-    android:label="BMI Activity" />
-
+            android:name=".BmiActivity"
+            android:label="BMI Activity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
