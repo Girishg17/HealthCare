@@ -1,4 +1,4 @@
-package com.girish.healthcare;
+package com.girish.healthcare.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.girish.healthcare.R;
+import com.girish.healthcare.activities.CreateAccount;
+import com.girish.healthcare.activities.Home1;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     WindowManager.LayoutParams.FLAG_FULLSCREEN
 );
          b2.setOnClickListener(v->{
-                Intent intent=new Intent(this,CreateAccount.class);
+                Intent intent=new Intent(this, CreateAccount.class);
                startActivity(intent);
          });
 
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void onclick(){
-                 Intent intent=new Intent(this,Home1.class);
+                 Intent intent=new Intent(this, Home1.class);
       startActivity(intent);
 
     }

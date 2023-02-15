@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "688096392622",
+    "project_id": "healthcare-4f928",
+    "storage_bucket": "healthcare-4f928.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688096392622:android:72812640e099145632043f",
+        "android_client_info": {
+          "package_name": "com.girish.healthcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688096392622-n2aroep6pd34lkp31d93589fphm2k3k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxahAyvsNrAl8HPj9gQ4ddWkYByL-Odqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688096392622-n2aroep6pd34lkp31d93589fphm2k3k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

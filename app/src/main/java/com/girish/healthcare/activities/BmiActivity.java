@@ -1,4 +1,4 @@
-package com.girish.healthcare;
+package com.girish.healthcare.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 
 import android.os.Bundle;
+
+import com.girish.healthcare.R;
 
 public class BmiActivity extends AppCompatActivity {
     private EditText weightInput;

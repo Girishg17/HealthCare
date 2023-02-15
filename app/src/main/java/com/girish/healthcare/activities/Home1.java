@@ -1,4 +1,4 @@
-package com.girish.healthcare;
+package com.girish.healthcare.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import android.os.Handler;
+
+import com.girish.healthcare.R;
 
 public class Home1 extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class Home1 extends AppCompatActivity {
         card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Home1.this,BmiActivity.class);
+                Intent intent=new Intent(Home1.this, BmiActivity.class);
                 startActivity(intent);
             }
         });
