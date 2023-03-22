@@ -11,9 +11,12 @@
         <entry key="..\:/HealthCare/app/src/main/res/drawable/main_content.xml" value="0.1" />
         <entry key="..\:/HealthCare/app/src/main/res/drawable/nav_header_main_background.xml" value="0.1" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_base.xml" value="0.1" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/activity_base2.xml" value="0.1" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_base3.xml" value="0.16927083333333334" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_bmi.xml" value="0.1" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_create_account.xml" value="0.16927083333333334" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/activity_create_account_controller.xml" value="0.15208333333333332" />
+        <entry key="..\:/HealthCare/app/src/main/res/layout/activity_create_account_model.xml" value="0.16927083333333334" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_home1.xml" value="0.1" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_main.xml" value="0.15208333333333332" />
         <entry key="..\:/HealthCare/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
