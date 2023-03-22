@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#239F70"
     tools:context=".activities.MainActivity">
 
     <TextView
@@ -18,20 +18,23 @@
       android:gravity="center"
         android:textStyle="bold"
         />
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/username"
-      android:layout_below="@id/signin"
-      android:hint="username"
-      android:textColor="@color/black"
-      android:textColorHint="@color/black"
-      android:layout_margin="10dp"
-      android:padding="20dp"
-      android:background="#30ffffff"
-       android:drawableLeft="@drawable/ic_baseline_person_outline_24"
-      android:drawablePadding="20dp"
-      />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="username"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
   <EditText
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

@@ -1,6 +1,8 @@
 package com.girish.healthcare.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
@@ -8,22 +10,32 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import android.os.Handler;
 
 import com.girish.healthcare.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Home1 extends AppCompatActivity {
 
     private boolean doubleBackToExitPressedOnce=false;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home1);
+
         setupActionBar();
         CardView card_view=(CardView) findViewById(R.id.calculate_bmi);
         card_view.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +66,9 @@ public class Home1 extends AppCompatActivity {
         }
     }
 
+
+
+
     @Override
     public void onBackPressed() {
        DrawerLayout drawer_layout=(DrawerLayout) findViewById(R.id.drawer_layout);
@@ -64,7 +79,7 @@ public class Home1 extends AppCompatActivity {
         }
     }
 
-    private void doubleBackToExit() {
+    void doubleBackToExit() {
        
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed();

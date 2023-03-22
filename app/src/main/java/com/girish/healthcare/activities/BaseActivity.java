@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -31,7 +32,7 @@ public class BaseActivity extends AppCompatActivity {
      public Boolean doubleBackToExitPressedOnce = false;
      public Dialog mProgressDialog;
 
-     void showProgressDialog( String text) {
+     public void showProgressDialog( String text) {
 //        TextView tv_progress_text=(TextView) findViewById(R.id.tv_progress_text);
 
         mProgressDialog = new Dialog(this);
@@ -46,7 +47,7 @@ public class BaseActivity extends AppCompatActivity {
         //Start the dialog and display it on screen.
         mProgressDialog.show();
     }
-     void  hideProgressDialog() {
+     public  void  hideProgressDialog() {
         mProgressDialog.dismiss();
     }
        String getCurrentUserID() {
@@ -74,7 +75,7 @@ new Handler().postDelayed(new Runnable() {
     }, 2000);
     }
 
-    void showErrorSnackBar(String message) {
+  void showErrorSnackBar(String message) {
     Snackbar snackBar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG);
     View snackBarView = snackBar.getView();
     ((View) snackBarView).setBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_error_color));
