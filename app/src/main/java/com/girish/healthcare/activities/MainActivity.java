@@ -18,6 +18,10 @@ import com.girish.healthcare.activities.CreateAccount;
 import com.girish.healthcare.activities.Home1;
 import com.girish.healthcare.controller.AddUserCallback;
 import com.girish.healthcare.controller.CreateAccountController;
+
+import com.girish.healthcare.models.FireStoreClass;
+import com.girish.healthcare.models.User;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -30,6 +34,8 @@ public class MainActivity extends BaseActivity {
     TextView b2;
     private FirebaseAuth mAuth;
 
+    private FireStoreClass FireStorage = new FireStoreClass();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +43,26 @@ public class MainActivity extends BaseActivity {
         mAuth = FirebaseAuth.getInstance();
         b1 = (MaterialButton) findViewById(R.id.login);
         b2 = (TextView) findViewById(R.id.create);
+
         CreateAccountController sec = new CreateAccountController();
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
+        String curentuserId = FireStorage.getCurrentUserID();
+        if (!curentuserId.isEmpty()) {
+            Intent intent = new Intent(MainActivity.this, Home1.class);
+            startActivity(intent);
+            finish();
+        }
         b2.setOnClickListener(v -> {
             Intent intent = new Intent(this, CreateAccount.class);
             startActivity(intent);
         });
 
         b1.setOnClickListener(v -> {
+
+
             EditText et_email = (EditText) findViewById(R.id.username);
             EditText et_password = (EditText) findViewById(R.id.password);
             String email = et_email.getText().toString();
@@ -67,13 +82,13 @@ public class MainActivity extends BaseActivity {
                         hideProgressDialog();
                         Intent intent = new Intent(MainActivity.this, Home1.class);
                         startActivity(intent);
+                        finish();
                     }
 
                     @Override
                     public void onFailure(String message) {
                         hideProgressDialog();
-                        Toast.makeText(MainActivity.this, "username and password didn't match ",
-                                Toast.LENGTH_SHORT).show();
+                        showErrorSnackBar("Email and password didn't match");
 
                     }
                 });
@@ -83,6 +98,12 @@ public class MainActivity extends BaseActivity {
             }
 
         });
+    }
+
+    public void signInSuccess(User loggedInUser) {
+        Toast.makeText(MainActivity.this, " SIGN IN",
+                Toast.LENGTH_SHORT).show();
+
     }
 
 //    private void SignInRegisterUser() {

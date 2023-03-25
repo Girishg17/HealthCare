@@ -14,6 +14,7 @@ import com.girish.healthcare.R;
 import com.girish.healthcare.controller.AddUserCallback;
 import com.girish.healthcare.controller.CreateAccountController;
 import com.girish.healthcare.models.CreateAccountModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateAccount extends BaseActivity {
 
@@ -58,7 +59,7 @@ public class CreateAccount extends BaseActivity {
                                         ,
                                         Toast.LENGTH_SHORT
                                 ).show();
-                                finish();
+                               finish();
                             }
 
                             @Override
@@ -99,6 +100,17 @@ public class CreateAccount extends BaseActivity {
             }
         });
 
+    }
+
+    public void userRegisteredSuccess() {
+
+         Toast.makeText(
+                                        CreateAccount.this, "registered sucess"
+                                        ,
+                                        Toast.LENGTH_SHORT
+                                ).show();
+//          FirebaseAuth.getInstance().signOut();
+//                                finish();
     }
 //    protected Boolean validateForm(String name,String email,String password){
 //        if (TextUtils.isEmpty(name)) {

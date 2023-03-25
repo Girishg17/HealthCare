@@ -15,7 +15,7 @@ import com.girish.healthcare.controller.BMIController;
 import com.girish.healthcare.controller.BMIView;
 
 
-public class BmiActivity extends AppCompatActivity {
+public class BmiActivity extends AppCompatActivity  {
     private EditText weightInput;
     private EditText heightInput;
     private TextView bmiResult;
@@ -44,6 +44,8 @@ public class BmiActivity extends AppCompatActivity {
     public void setBmiResult(double bmi) {
         bmiResult.setText("Your BMI is: " + String.format("%.2f", bmi));
     }
+
+
 }
 
 

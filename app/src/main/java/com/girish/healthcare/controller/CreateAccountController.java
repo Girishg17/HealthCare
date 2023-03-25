@@ -65,7 +65,7 @@ public class CreateAccountController extends BaseActivity {
 //        String email = et_email.getText().toString().trim();
 //        String password = et_password.getText().toString().trim();
 
-        Log.d(TAG, name);
+
 // Toast.makeText(
 //                this,"registered"
 //               ,
@@ -73,7 +73,7 @@ public class CreateAccountController extends BaseActivity {
 //        ).show();
 
 
-        first.adduser(email, password, callback);
+        first.adduser(name,email, password, callback);
 
     }
     public void signinuser(String email, String password, FirebaseAuth mAuth, AddUserCallback callback){
