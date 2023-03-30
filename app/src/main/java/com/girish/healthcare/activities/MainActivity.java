@@ -54,6 +54,8 @@ public class MainActivity extends BaseActivity {
             Intent intent = new Intent(MainActivity.this, Home1.class);
             startActivity(intent);
             finish();
+        } else {
+            Log.e("nothing", "here only");
         }
         b2.setOnClickListener(v -> {
             Intent intent = new Intent(this, CreateAccount.class);
@@ -72,8 +74,7 @@ public class MainActivity extends BaseActivity {
 
             boolean validate = sec.validateFormx(email, password);
             if (validate) {
-                Toast.makeText(MainActivity.this, " validated " + email,
-                        Toast.LENGTH_SHORT).show();
+
                 showProgressDialog("Please Wait");
 
                 sec.signinuser(email, password, mAuth, new AddUserCallback() {
@@ -100,11 +101,11 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    public void signInSuccess(User loggedInUser) {
-        Toast.makeText(MainActivity.this, " SIGN IN",
-                Toast.LENGTH_SHORT).show();
-
-    }
+//    public void signInSuccess(User loggedInUser) {
+//        Toast.makeText(MainActivity.this, " SIGN IN",
+//                Toast.LENGTH_SHORT).show();
+//
+//    }
 
 //    private void SignInRegisterUser() {
 //

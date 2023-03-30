@@ -1,9 +1,10 @@
 package com.girish.healthcare.models;
 
 import com.girish.healthcare.activities.CreateAccount;
-//import com.google.android.gms.common.internal.Constants;
+
 import com.girish.healthcare.activities.Home1;
 import com.girish.healthcare.activities.MainActivity;
+import com.girish.healthcare.activities.MyProfileActivity;
 import com.girish.healthcare.controller.AddUserCallback;
 import com.girish.healthcare.utils.Constants;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -15,12 +16,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.firestore.SetOptions;
+import com.google.protobuf.Any;
+
+import java.util.HashMap;
 
 
 // TODO (Step 3: Create a class where we will add the operation performed for the firestore database.)
@@ -60,25 +65,27 @@ public class FireStoreClass {
                 ));
     }
 
-    public void signInUser(Activity activity) {
+    public void loadUserData(Activity activity) {
 
         mFireStore.collection(Constants.USERS)
                 .document(getCurrentUserID())
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
-                    Log.e(activity.getClass().getSimpleName(), documentSnapshot.toString());
 
                     // TODO (STEP 3: Pass the result to base activity.)
                     // START
                     User loggedInUser = documentSnapshot.toObject(User.class);
 
                     // Here call a function of base activity for transferring the result to it.
-                   if(activity instanceof MainActivity){
-                       ((MainActivity)activity).signInSuccess(loggedInUser);
-                   }
-                   else if(activity instanceof Home1){
-                       ((Home1) activity).updateNavigationUserDetails(loggedInUser);
-                   }
+//                   if(activity instanceof MainActivity){
+//                       ((MainActivity)activity).signInSuccess(loggedInUser);
+//                   }
+                    if (activity instanceof Home1) {
+
+
+                        ((Home1) activity).updateNavigationUserDetails(loggedInUser);
+
+                    }
 //                   else if (activity instanceof MyProfileActivity) {
 //                        ((MyProfileActivity) activity).setUserDataInUI(loggedInUser);
 //                    }
@@ -92,6 +99,73 @@ public class FireStoreClass {
                                 "Error while getting loggedIn user details", e);
                     }
                 });
+    }
+
+public void updateUserProfileData(MyProfileActivity activity, HashMap<String, Object> userHashMap) {
+    mFireStore.collection(Constants.USERS) // Collection Name
+        .document(getCurrentUserID()) // Document ID
+        .update(userHashMap) // A hashmap of fields which are to be updated.
+        .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                // Profile data is updated successfully.
+
+                activity.hideProgressDialog();
+                activity.finish();;
+                Toast.makeText(activity, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
+
+                // Notify the success result.
+
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                activity.hideProgressDialog();
+                activity.finish();
+                   Toast.makeText(activity, "Profile not updated", Toast.LENGTH_SHORT).show();
+
+
+
+            }
+        });
+}
+
+
+    public void loadUserProfile(Activity activity) {
+
+        mFireStore.collection(Constants.USERS)
+                .document(getCurrentUserID())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+
+                    // TODO (STEP 3: Pass the result to base activity.)
+                    // START
+                    User loggedInUser = documentSnapshot.toObject(User.class);
+
+                    // Here call a function of base activity for transferring the result to it.
+//                   if(activity instanceof MainActivity){
+//                       ((MainActivity)activity).signInSuccess(loggedInUser);
+//                   }
+
+
+                    ((MyProfileActivity) activity).UserDetails(loggedInUser);
+
+
+//                   else if (activity instanceof MyProfileActivity) {
+//                        ((MyProfileActivity) activity).setUserDataInUI(loggedInUser);
+//                    }
+
+                    // END
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                         Toast.makeText(activity, "Could not able to load profile", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
     }
 
 
@@ -119,6 +193,7 @@ public class FireStoreClass {
 
         return currentUserID;
     }
+
 
 }
 

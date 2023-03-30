@@ -2,7 +2,6 @@ package com.girish.healthcare.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
@@ -10,23 +9,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.os.Handler;
 
 import com.girish.healthcare.R;
+import com.girish.healthcare.models.FireStoreClass;
 import com.girish.healthcare.models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.bumptech.glide.Glide;
 
 public class Home1 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,11 +33,15 @@ public class Home1 extends AppCompatActivity implements NavigationView.OnNavigat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home1);
+           setupActionBar();
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        setupActionBar();
+
+       new FireStoreClass().loadUserData(this);
+
 
         CardView card_view = (CardView) findViewById(R.id.calculate_bmi);
+
+        navigationView.setNavigationItemSelectedListener(this);
         card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,11 +109,8 @@ public class Home1 extends AppCompatActivity implements NavigationView.OnNavigat
         DrawerLayout drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         switch (item.getItemId()) {
             case R.id.nav_my_profile:
-                Toast.makeText(
-                        this, "my profile clicked"
-                        ,
-                        Toast.LENGTH_SHORT
-                ).show();
+                Intent intent2 = new Intent(this, MyProfileActivity.class);
+                startActivity(intent2);
                 //startActivity(new Intent(MainActivity.this, MyProfileActivity.class));
                 break;
             case R.id.nav_signout:
@@ -132,5 +129,14 @@ public class Home1 extends AppCompatActivity implements NavigationView.OnNavigat
     }
 
     public void updateNavigationUserDetails(User loggedInUser) {
+        ImageView nav_user_image=findViewById(R.id.nav_user_image);
+        TextView tv_username=findViewById(R.id.tv_username);
+        Glide.with(Home1.this)
+    .load(loggedInUser.getImage()) // URL of the image
+    .centerCrop() // Scale type of the image.
+    .placeholder(R.drawable.ic_user_place_holder) // A default place holder
+    .into(nav_user_image); // the view in which the image will be loaded.
+   tv_username.setText(loggedInUser.getName());
+
     }
 }

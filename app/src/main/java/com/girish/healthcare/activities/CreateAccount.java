@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -59,12 +60,12 @@ public class CreateAccount extends BaseActivity {
                                         ,
                                         Toast.LENGTH_SHORT
                                 ).show();
-                               finish();
+                                finish();
                             }
 
                             @Override
                             public void onFailure(String message) {
-                                                      hideProgressDialog();
+                                hideProgressDialog();
                                 Toast.makeText(
                                         CreateAccount.this, name + "error"
                                         ,
@@ -104,14 +105,12 @@ public class CreateAccount extends BaseActivity {
 
     public void userRegisteredSuccess() {
 
-         Toast.makeText(
-                                        CreateAccount.this, "registered sucess"
-                                        ,
-                                        Toast.LENGTH_SHORT
-                                ).show();
+        Log.e("hello", "message");
 //          FirebaseAuth.getInstance().signOut();
 //                                finish();
     }
+
+}
 //    protected Boolean validateForm(String name,String email,String password){
 //        if (TextUtils.isEmpty(name)) {
 //    showErrorSnackBar("Please enter name.");
@@ -169,4 +168,3 @@ public class CreateAccount extends BaseActivity {
 //}
 //
 //   }
-}

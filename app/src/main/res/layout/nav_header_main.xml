@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 <de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/nav_user_image"
     android:layout_width="@dimen/nav_image_size"
     android:layout_height="@dimen/nav_image_size"
     android:layout_marginStart="@dimen/nav_content_margin_StartEnd"
@@ -23,12 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_username"
-        android:layout_marginStart="@dimen/nav_content_margin_StartEnd"
+        android:layout_marginStart="27dp"
         android:layout_marginTop="@dimen/nav_content_margin_top"
         android:layout_marginEnd="@dimen/nav_content_margin_StartEnd"
         android:layout_marginBottom="@dimen/nav_content_margin_bottom"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="@dimen/nav_user_name_text_size"
+
         tools:text="username"
 
         />

@@ -45,7 +45,7 @@ public class CreateAccountModel extends BaseActivity {
                         FirebaseUser firebaseUser = task.getResult().getUser();
                         assert firebaseUser != null;
                         String registeredEmail = firebaseUser.getEmail();
-                        User user = new User(firebaseUser.getUid(),name,registeredEmail,""
+                        User user = new User(firebaseUser.getUid(),name,registeredEmail,"","",0
                         );
                         FireStoraget.registerUser(user);
                     //    FirebaseAuth.getInstance().signOut();

@@ -12,8 +12,11 @@ public class User implements Parcelable {
    private String image;
    private long mobile;
     private String fcmToken;
+    public User(){
 
-    public User(String id,String name, String email, String fcmToken) {
+    }
+
+    public User(String id,String name, String email, String fcmToken,String image,long mobile) {
         this.id = id;
        this.name = name;
         this.email = email;
